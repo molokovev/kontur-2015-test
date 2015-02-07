@@ -3,6 +3,9 @@
 <head lang="ru">
     <meta charset="UTF-8">
     <title>SKB Kontur test task</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
     <div id="sidebar">
@@ -30,6 +33,40 @@
             <span>столбец</span>
         </div>
         <div class="error-message"></div>
+    </div>
+    <div id="main">
+        <div id="C" class="matrix">
+            <div class="row">
+                <input type="text" class="element" value="c1,1" />
+                <input type="text" class="element" value="c1,2" />
+            </div>
+            <div class="row">
+                <input type="text" class="element" value="c2,1" />
+                <input type="text" class="element" value="c2,2" />
+            </div>
+        </div>
+        <div id="A" class="matrix">
+            <div class="row">
+                <input type="text" class="element" value="a1,1" />
+                <input type="text" class="element" value="a1,2" />
+            </div>
+            <div class="row">
+                <input type="text" class="element" value="a2,1" />
+                <input type="text" class="element" value="a2,2" />
+            </div>
+            <div class="name">A</div>
+        </div>
+        <div id="B" class="matrix clear-left">
+            <div class="row">
+                <input type="text" class="element" value="b1,1" />
+                <input type="text" class="element" value="b1,2" />
+            </div>
+            <div class="row">
+                <input type="text" class="element" value="b2,1" />
+                <input type="text" class="element" value="b2,2" />
+            </div>
+            <div class="name">B</div>
+        </div>
     </div>
 </body>
 </html>
