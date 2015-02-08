@@ -8,65 +8,69 @@
     <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-    <div id="sidebar">
-        <button id="multiply-button" class="button">Умножить матрицы</button>
-        <button id="clear-button" class="button">Очистить матрицы</button>
-        <button id="switch-button" class="button">Поменять матрицы местами</button>
-        <div class="checkboxes">
-            <label>
-                <input type="radio" name="matrix" value="a" checked="checked">
-                Матрица А
-            </label>
-            <label>
-                <input type="radio" name="matrix" value="b">
-                Матрица B
-            </label>
-        </div>
-        <div>
-            <button id="add-row" class="button">Добавить</button>
-            <button id="delete-row" class="button">Удалить</button>
-            <span>строку</span>
-        </div>
-        <div>
-            <button id="add-column" class="button">Добавить</button>
-            <button id="delete-column" class="button">Удалить</button>
-            <span>столбец</span>
-        </div>
-        <div class="error-message"></div>
-    </div>
-    <div id="main">
-        <div id="C" class="matrix">
-            <div class="row">
-                <input type="text" class="element" value="c1,1" />
-                <input type="text" class="element" value="c1,2" />
+<table>
+    <tr>
+        <td id="sidebar">
+            <button id="multiply-button" class="button">Умножить матрицы</button>
+            <button id="clear-button" class="button">Очистить матрицы</button>
+            <button id="switch-button" class="button">Поменять матрицы местами</button>
+            <div class="checkboxes">
+                <label>
+                    <input type="radio" name="matrix" value="A" checked="checked">
+                    Матрица А
+                </label>
+                <label>
+                    <input type="radio" name="matrix" value="B">
+                    Матрица B
+                </label>
             </div>
-            <div class="row">
-                <input type="text" class="element" value="c2,1" />
-                <input type="text" class="element" value="c2,2" />
+            <div>
+                <button id="add-row" class="button">Добавить</button>
+                <button id="delete-row" class="button">Удалить</button>
+                <span>строку</span>
             </div>
-        </div>
-        <div id="A" class="matrix">
-            <div class="row">
-                <input type="text" class="element" value="a1,1" />
-                <input type="text" class="element" value="a1,2" />
+            <div>
+                <button id="add-column" class="button">Добавить</button>
+                <button id="delete-column" class="button">Удалить</button>
+                <span>столбец</span>
             </div>
-            <div class="row">
-                <input type="text" class="element" value="a2,1" />
-                <input type="text" class="element" value="a2,2" />
+            <div class="error-message"></div>
+        </td>
+        <td id="main">
+            <div id="C" class="matrix">
+                <div class="row">
+                    <input type="text" class="element" value="c1,1" data-value="c1,1" disabled/>
+                    <input type="text" class="element" value="c1,2" data-value="c1,2" disabled/>
+                </div>
+                <div class="row">
+                    <input type="text" class="element" value="c2,1" data-value="c2,1" disabled/>
+                    <input type="text" class="element" value="c2,2" data-value="c2,2" disabled/>
+                </div>
             </div>
-            <div class="name">A</div>
-        </div>
-        <div id="B" class="matrix clear-left">
-            <div class="row">
-                <input type="text" class="element" value="b1,1" />
-                <input type="text" class="element" value="b1,2" />
+            <div id="A" class="matrix first">
+                <div class="name">A</div>
+                <div class="row">
+                    <input type="text" class="element" value="a1,1" data-value="a1,1"/>
+                    <input type="text" class="element" value="a1,2" data-value="a1,2"/>
+                </div>
+                <div class="row">
+                    <input type="text" class="element" value="a2,1" data-value="a2,1"/>
+                    <input type="text" class="element" value="a2,2" data-value="a2,2"/>
+                </div>
             </div>
-            <div class="row">
-                <input type="text" class="element" value="b2,1" />
-                <input type="text" class="element" value="b2,2" />
+            <div id="B" class="matrix second clear-left">
+                <div class="name">B</div>
+                <div class="row">
+                    <input type="text" class="element" value="b1,1" data-value="b1,1"/>
+                    <input type="text" class="element" value="b1,2" data-value="b1,2"/>
+                </div>
+                <div class="row">
+                    <input type="text" class="element" value="b2,1" data-value="b2,1"/>
+                    <input type="text" class="element" value="b2,2" data-value="b2,2"/>
+                </div>
             </div>
-            <div class="name">B</div>
-        </div>
-    </div>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
