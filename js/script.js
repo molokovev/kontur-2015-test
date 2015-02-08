@@ -13,6 +13,26 @@ $(function () {
     var C = new Matrix('C');
     var activeMatrix = A;
 
+    // pushed buttons styles
+    $('button').not('.green').on('mousedown', function() {
+        $(this).css({'background': '#d9d9d9',
+                     'outline': 'none',
+                     'border-top-color': '#a6a6a6',
+                     'border-left-color': '#cccccc',
+                     'border-right-color': '#cccccc',
+                     'border-bottom-color': '#cccccc',
+                     'box-shadow': 'inset 0 2px 2px 2px #ccc'});
+    }).on('mouseup', function() {
+        $(this).css({'background': '',
+                     'outline': '',
+                     'border-top-color': '',
+                     'border-left-color': '',
+                     'border-right-color': '',
+                     'border-bottom-color': '',
+                     'border-top-color': '',
+                     'box-shadow': ''});
+    });
+
     // "choose matrix" radio-button
     $('[name="matrix"]').change(function() {
         activeMatrix = $(this).val() === 'A' ? A : B;
@@ -23,6 +43,7 @@ $(function () {
     $(document).on('focus', '.element', function() {
         clearError();
         sidebar.addClass('edit');
+        $(this).css({'color': 'black', 'font-weight': 'bolder'});
         var _val = $(this).val();
         var _defVal = $(this).data('value');
         if (_val === _defVal) {
@@ -33,6 +54,7 @@ $(function () {
         var _defVal = $(this).data('value');
         if ($(this).val() === '') {
             $(this).val(_defVal);
+            $(this).css({'color': '#404040', 'font-weight': 'normal'});
         }
     }).on('keypress', '.element', function(e) {
         var _val = $(this).val();

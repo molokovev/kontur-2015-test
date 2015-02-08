@@ -1,5 +1,4 @@
 html, body {
-    width: 100%;
     height: 100%;
     min-height: 1px;
     margin: 0;
@@ -9,10 +8,29 @@ html, body {
     line-height: 20px;
 }
 input, button {
+    padding: 0;
     font-family: 'SegoeUIRegular', Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #404040;
     line-height: 20px;
+}
+button {
+    text-align: left;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #fdfdfd, #ececec);
+    border: 1px solid #d9d9d9;
+    outline: none;
+}
+button:disabled {
+    background: #f2f2f2;
+    color: #808080;
+}
+button:focus {
+    outline: none;
+    border: 2px solid #5199db;
+}
+button:hover {
+    background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
 }
 
 @font-face {
@@ -43,35 +61,53 @@ table td {
     background-color: #cccccc;
 }
 #sidebar.edit {
-    background-color: dodgerblue;
+    background-color: #5199db;
 }
 #sidebar.error {
-    background-color: darksalmon;
+    background-color: #f6c1c0;
 }
 
 #multiply-button {
     display: block;
-    width: 200px;
+    width: 190px;
     height: 40px;
     margin: 30px 0 50px 0;
+    text-align: center;
 }
 
 #clear-button {
     display: block;
-    width: 150px;
-    height: 30px;
+    width: 155px;
+    height: 28px;
     margin: 0 0 10px 0;
 }
 
 #switch-button {
     display: block;
-    width: auto;
-    height: 30px;
+    width: 217px;
+    height: 28px;
     margin: 0 0 10px 0;
+}
+
+#add-row, #add-column {
+    width: 95px;
+    height: 30px;
+    margin: 3px 0;
+    line-height: 30px;
+}
+#delete-row, #delete-column {
+    width: 85px;
+    height: 30px;
+    margin: 3px 0;
+    line-height: 30px;
 }
 
 .checkboxes {
     margin: 50px 0 20px 0;
+}
+
+#main {
+    white-space: nowrap;
 }
 
 .matrix {
@@ -139,4 +175,14 @@ table td {
     width: 263px;
     margin-top: 50px;
     color: red;
+}
+
+.plus-minus {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 20px;
+    vertical-align: sub;
 }
