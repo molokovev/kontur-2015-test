@@ -37,13 +37,16 @@ table td {
 }
 
 #sidebar {
-    width: 300px;
-    padding-left: 50px;
+    width: 310px;
+    padding-left: 40px;
     height: 100%;
     background-color: #cccccc;
 }
 #sidebar.edit {
     background-color: dodgerblue;
+}
+#sidebar.error {
+    background-color: darksalmon;
 }
 
 #multiply-button {
@@ -133,7 +136,7 @@ table td {
 }
 
 .error-message {
-    width: 250px;
+    width: 263px;
     margin-top: 50px;
     color: red;
 }

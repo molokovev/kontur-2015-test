@@ -34,9 +34,7 @@
                 <button id="delete-column" class="button">Удалить</button>
                 <span>столбец</span>
             </div>
-            <div class="error-message">
-                Такие матрицы нельзя перемножить, так как количество столбцов матрицы
-            </div>
+            <div class="error-message"></div>
         </td>
         <td id="main">
             <div id="C" class="matrix">
@@ -52,23 +50,23 @@
             <div id="A" class="matrix first">
                 <div class="name">A</div>
                 <div class="row">
-                    <input type="text" class="element" value="a1,1" data-value="a1,1"/>
-                    <input type="text" class="element" value="a1,2" data-value="a1,2"/>
+                    <input type="text" class="element" value="a1,1" data-value="a1,1" data-row="1" data-col="1"/>
+                    <input type="text" class="element" value="a1,2" data-value="a1,2" data-row="1" data-col="2"/>
                 </div>
                 <div class="row">
-                    <input type="text" class="element" value="a2,1" data-value="a2,1"/>
-                    <input type="text" class="element" value="a2,2" data-value="a2,2"/>
+                    <input type="text" class="element" value="a2,1" data-value="a2,1" data-row="2" data-col="1"/>
+                    <input type="text" class="element" value="a2,2" data-value="a2,2" data-row="2" data-col="2"/>
                 </div>
             </div>
             <div id="B" class="matrix second clear-left">
                 <div class="name">B</div>
                 <div class="row">
-                    <input type="text" class="element" value="b1,1" data-value="b1,1"/>
-                    <input type="text" class="element" value="b1,2" data-value="b1,2"/>
+                    <input type="text" class="element" value="b1,1" data-value="b1,1" data-row="1" data-col="1"/>
+                    <input type="text" class="element" value="b1,2" data-value="b1,2" data-row="1" data-col="2"/>
                 </div>
                 <div class="row">
-                    <input type="text" class="element" value="b2,1" data-value="b2,1"/>
-                    <input type="text" class="element" value="b2,2" data-value="b2,2"/>
+                    <input type="text" class="element" value="b2,1" data-value="b2,1" data-row="2" data-col="1"/>
+                    <input type="text" class="element" value="b2,2" data-value="b2,2" data-row="2" data-col="2"/>
                 </div>
             </div>
         </td>
