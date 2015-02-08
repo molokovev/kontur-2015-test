@@ -221,11 +221,13 @@ $(function () {
 
 
     var multiplyMatrices = function() {
+        var _first = getFirstMatrix();
+        var _second = getSecondMatrix();
         // check for sizes
-        if (getFirstMatrix().width !== getSecondMatrix().height) {
+        if (_first.width !== _second.height) {
             sidebar.addClass('error');
             error.html('Такие матрицы нельзя перемножить, так как количество столбцов матрицы ' +
-                getFirstMatrix().name + ' не равно количеству строк матрицы ' + getSecondMatrix().name + '.');
+            _first.name + ' не равно количеству строк матрицы ' + _second.name + '.');
             return;
         } else {
             clearError();
@@ -240,7 +242,27 @@ $(function () {
             clearError();
         }
 
+        // calculate
+        C.$el.find('.element').each(function() {
+            var _value = 0;
+            var _colVals = [];
+            var _rowVals = [];
+            var _row = $(this).data('row');
+            var _col = $(this).data('col');
 
+            _first.$el.find('[data-row="' + _row + '"]').each(function() {
+                _colVals.push(Number($(this).val()));
+            });
+            _second.$el.find('[data-col="' + _col + '"]').each(function() {
+                _rowVals.push(Number($(this).val()));
+            });
+
+            for (var i = 0; i < _rowVals.length; i++) {
+                _value += _colVals[i] * _rowVals[i];
+            }
+
+            $(this).val(_value);
+        });
     };
 
     var isMatricesFilled = function() {
