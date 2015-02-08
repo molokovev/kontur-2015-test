@@ -62,20 +62,32 @@ $(function () {
     // add/delete rows
     addRowButton.click(function() {
         activeMatrix.addRow();
+        if (activeMatrix === getFirstMatrix()) {
+            C.addRow();
+        }
         checkMatrixSize();
     });
     deleteRowButton.click(function() {
         activeMatrix.deleteRow();
+        if (activeMatrix === getFirstMatrix()) {
+            C.deleteRow();
+        }
         checkMatrixSize();
     });
 
     // add/delete columns
     addColumnButton.click(function() {
         activeMatrix.addColumn();
+        if (activeMatrix === getSecondMatrix()) {
+            C.addColumn();
+        }
         checkMatrixSize();
     });
     deleteColumnButton.click(function() {
         activeMatrix.deleteColumn();
+        if (activeMatrix === getSecondMatrix()) {
+            C.deleteColumn();
+        }
         checkMatrixSize();
     });
 
@@ -90,11 +102,12 @@ $(function () {
         this.$el = $('#' + name);
         this.addRow = function() {
             var _row = $('<div class="row"></div>');
+            var _disabled = name === 'C' ? 'disabled' : '';
             this.height++;
             for (var i = 1; i <= this.width; i++) {
                 var _val = name.toLowerCase() + this.height + ',' + i;
                 var _elem = '<input type="text" class="element" value="' + _val + '" ' +
-                            'data-value="' + _val + '"' + '" />';
+                            'data-value="' + _val + '"' + _disabled + ' />';
                 _row.append(_elem);
             }
             this.$el.append(_row);
@@ -105,11 +118,12 @@ $(function () {
         };
         this.addColumn = function() {
             var self = this;
+            var _disabled = name === 'C' ? 'disabled' : '';
             this.width++;
             this.$el.find('.row').each(function(i) {
                 var _val = name.toLowerCase() + (i + 1) + ',' + self.width;
                 var _elem = '<input type="text" class="element" value="' + _val + '" ' +
-                            'data-value="' + _val + '"' + '" />';
+                            'data-value="' + _val + '"' + _disabled + ' />';
                 $(this).append(_elem);
             });
         };
@@ -121,6 +135,29 @@ $(function () {
         };
     }
 
+    var getFirstMatrix = function() {
+        return A.$el.hasClass('first') ? A : B;
+    };
+    var getSecondMatrix = function() {
+        return A.$el.hasClass('first') ? B : A;
+    };
+
+    // used on matrix switching
+    C.update = function() {
+        this.$el.empty();
+        this.width = 0;
+        this.height = getFirstMatrix().height;
+        for (var j = 1; j <= getSecondMatrix().width; j++) {
+            this.addColumn();
+        }
+        this.height = 0;
+        this.width = getSecondMatrix().width;
+        for (var i = 1; i <= getFirstMatrix().height; i++) {
+            this.addRow();
+        }
+
+    };
+
     var switchMatrices = function() {
         A.$el.toggleClass('clear-left first second');
         B.$el.toggleClass('clear-left first second');
@@ -130,6 +167,8 @@ $(function () {
         } else {
             A.$el.insertBefore(B.$el);
         }
+
+        C.update();
     };
 
     var checkMatrixSize = function() {

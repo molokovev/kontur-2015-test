@@ -131,3 +131,9 @@ table td {
     float: left;
     clear: both;
 }
+
+.error-message {
+    width: 250px;
+    margin-top: 50px;
+    color: red;
+}
