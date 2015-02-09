@@ -73,17 +73,42 @@ $(function () {
             $(this).val(_defVal);
             $(this).css({'color': '#404040'});
         }
-    }).on('keypress', '.element', function(e) {
+    }).on('keydown', '.element', function(e) {
         var _val = $(this).val();
-        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-            return false;
-        }
-        if (_val !== '') {
-            if (_val != 1) {
-                return false;
-            } else if (e.which != 48) {
-                return false;
+        var _numVal = Number(_val);
+        if (_val === '') {
+            // on enter
+            if (e.which === 13) {
+                $(this).blur();
             }
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.which, [46, 8, 9, 27, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A
+                (e.which == 65 && e.ctrlKey === true) ||
+                    // Allow: home, end, left, right, down, up
+                (e.which >= 35 && e.which <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.which < 48 || e.which > 57)) && (e.which < 96 || e.which > 105)) {
+                e.preventDefault();
+            }
+        } else if (_numVal !== 1 || e.which !== 48) {
+            // on enter
+            if (e.which === 13) {
+                $(this).blur();
+            }
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.which, [46, 8, 9, 27, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A
+                (e.which == 65 && e.ctrlKey === true) ||
+                    // Allow: home, end, left, right, down, up
+                (e.which >= 35 && e.which <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            e.preventDefault();
         }
     });
 
