@@ -16,30 +16,28 @@
                 <button id="multiply-button" class="button green">Умножить матрицы</button>
             </div>
             <div id="clear-button-wrap">
-                <button id="clear-button" class="button">Очистить матрицы</button>
+                <button id="clear-button" class="button">&nbsp;<span class="text-arrow">&#8634;</span> Очистить матрицы</button>
             </div>
             <div id="switch-button-wrap">
-                <button id="switch-button" class="button">Поменять матрицы местами</button>
+                <button id="switch-button" class="button">&nbsp;<span class="text-arrow">&#8645;</span> Поменять матрицы местами</button>
             </div>
             <div class="checkboxes">
-                <label>
-                    <input type="radio" name="matrix" value="A" checked="checked">
-                    Матрица А
-                </label>
-                <label>
-                    <input type="radio" name="matrix" value="B">
-                    Матрица B
-                </label>
+                <label title="Выбрать матрицу A"><input type="radio" name="matrix" value="A" checked="checked">Матрица А</label>
+                <label title="Выбрать матрицу B"><input type="radio" name="matrix" value="B">Матрица B</label>
             </div>
             <div class="buttons-wrap">
-                <button id="add-row" class="button"><span class="plus-minus">+</span>Добавить</button><!--
-             --><button id="delete-row" class="button"><span class="plus-minus">-</span>Удалить</button>
+                <button id="add-row" class="button"><span class="plus-minus">+</span>Добавить</button>
+                &nbsp;
+                <button id="delete-row" class="button">&nbsp;<span class="plus-minus">&#8211;</span>Удалить</button>
+                &nbsp;
                 <span>строку</span>
             </div>
             <div class="buttons-wrap">
-                <button id="add-column" class="button"><span class="plus-minus">+</span>Добавить</button><!--
-             --><button id="delete-column" class="button"><span class="plus-minus">-</span>Удалить</button>
-                <span>столбец</span>
+                <button id="add-column" class="button"><span class="plus-minus">+</span>Добавить</button>
+                &nbsp;
+                <button id="delete-column" class="button">&nbsp;<span class="plus-minus">&#8211;</span>Удалить</button>
+                &nbsp;
+                <span>&nbsp;столбец</span>
             </div>
             <div class="error-message"></div>
         </td>

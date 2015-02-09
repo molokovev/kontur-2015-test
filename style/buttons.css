@@ -5,11 +5,12 @@ button {
     position: relative;
     padding: 0 3px;
     text-align: left;
+    vertical-align: top;
     border-radius: 3px;
     /* IE fallback*/
     background: #fdfdfd;
     background: linear-gradient(to bottom, #fdfdfd, #ececec);
-    border: 1px solid #d9d9d9;
+    border: 1px solid rgba(217, 217, 217, .5);
     border-bottom: 1px solid #b2b2b2;
     outline: none;
     cursor: pointer;
@@ -34,6 +35,10 @@ button:disabled:hover {
     cursor: default;
 }
 
+.text-arrow {
+    font-size: 16px;
+}
+
 
 /*
     multiply-button
@@ -47,6 +52,16 @@ button:disabled:hover {
     width: 190px;
     height: 40px;
     text-align: center;
+    color: white;
+    font-size: 15px;
+}
+#multiply-button {
+    background: #4aa71c;
+    background: linear-gradient(to bottom, #4aa71c, #38920c);
+}
+#multiply-button:hover {
+    background: #317e0b;
+    background: linear-gradient(to bottom, #3b8d13, #317e0b);
 }
 
 /*
@@ -81,6 +96,10 @@ button:disabled:hover {
 .checkboxes {
     margin: 50px 0 20px 0;
 }
+.checkboxes label,
+.checkboxes input {
+    cursor: pointer;
+}
 
 /*
     add/delete buttons
@@ -88,16 +107,17 @@ button:disabled:hover {
 .buttons-wrap {
     position: relative;
     height: 40px;
+    line-height: 28px;
 }
 #add-row, #add-column {
     width: 95px;
-    height: 30px;
-    line-height: 30px;
+    height: 28px;
+    line-height: 28px;
 }
 #delete-row, #delete-column {
     width: 85px;
-    height: 30px;
-    line-height: 30px;
+    height: 28px;
+    line-height: 28px;
 }
 .plus-minus {
     display: inline-block;
