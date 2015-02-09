@@ -1,0 +1,110 @@
+/*
+    common
+*/
+button {
+    position: relative;
+    padding: 0 3px;
+    text-align: left;
+    border-radius: 3px;
+    /* IE fallback*/
+    background: #fdfdfd;
+    background: linear-gradient(to bottom, #fdfdfd, #ececec);
+    border: 1px solid #d9d9d9;
+    border-bottom: 1px solid #b2b2b2;
+    outline: none;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+button:disabled {
+    background: #f2f2f2;
+    color: #808080;
+}
+button:focus {
+    top: -1px;
+    margin-right: -1px !important;
+    margin-left: -1px !important;
+    outline: none;
+    border: 2px solid #5199db;
+}
+button:hover {
+    background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
+}
+button:disabled:hover {
+    background: #f2f2f2;
+    cursor: default;
+}
+
+
+/*
+    multiply-button
+*/
+#multiply-button-wrap {
+    height: 50px;
+    margin: 30px 0 50px 0;
+}
+#multiply-button {
+    display: block;
+    width: 190px;
+    height: 40px;
+    text-align: center;
+}
+
+/*
+    clear-button
+*/
+#clear-button-wrap {
+    height: 35px;
+    margin: 0 0 10px 0;
+}
+#clear-button {
+    display: block;
+    width: 155px;
+    height: 28px;
+}
+
+/*
+    switch button
+*/
+#switch-button-wrap {
+    height: 35px;
+    margin: 0 0 10px 0;
+}
+#switch-button {
+    display: block;
+    width: 217px;
+    height: 28px;
+}
+
+/*
+    checks
+*/
+.checkboxes {
+    margin: 50px 0 20px 0;
+}
+
+/*
+    add/delete buttons
+*/
+.buttons-wrap {
+    position: relative;
+    height: 40px;
+}
+#add-row, #add-column {
+    width: 95px;
+    height: 30px;
+    line-height: 30px;
+}
+#delete-row, #delete-column {
+    width: 85px;
+    height: 30px;
+    line-height: 30px;
+}
+.plus-minus {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 20px;
+    vertical-align: sub;
+}

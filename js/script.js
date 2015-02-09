@@ -21,8 +21,8 @@ $(function () {
                      'border-left-color': '#cccccc',
                      'border-right-color': '#cccccc',
                      'border-bottom-color': '#cccccc',
-                     'box-shadow': 'inset 0 2px 2px 2px #ccc'});
-    }).on('mouseup', function() {
+                     'box-shadow': 'inset 0 1px 2px 2px #ccc'});
+    }).on('mouseup mouseleave', function() {
         $(this).css({'background': '',
                      'outline': '',
                      'border-top-color': '',

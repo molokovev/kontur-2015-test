@@ -1,3 +1,6 @@
+/*
+    common
+*/
 html, body {
     height: 100%;
     min-height: 1px;
@@ -8,31 +11,11 @@ html, body {
     line-height: 20px;
 }
 input, button {
-    padding: 0;
     font-family: 'SegoeUIRegular', Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #404040;
     line-height: 20px;
 }
-button {
-    text-align: left;
-    border-radius: 3px;
-    background: linear-gradient(to bottom, #fdfdfd, #ececec);
-    border: 1px solid #d9d9d9;
-    outline: none;
-}
-button:disabled {
-    background: #f2f2f2;
-    color: #808080;
-}
-button:focus {
-    outline: none;
-    border: 2px solid #5199db;
-}
-button:hover {
-    background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
-}
-
 @font-face {
     font-family: "SegoeUIRegular";
     src: url("../fonts/SegoeUIRegular/SegoeUIRegular.eot");
@@ -42,7 +25,6 @@ button:hover {
     font-style: normal;
     font-weight: normal;
 }
-
 table {
     width: auto;
     height: 100%;
@@ -54,6 +36,9 @@ table td {
     vertical-align: top;
 }
 
+/*
+    sidebar
+*/
 #sidebar {
     width: 310px;
     padding-left: 40px;
@@ -67,49 +52,16 @@ table td {
     background-color: #f6c1c0;
 }
 
-#multiply-button {
-    display: block;
-    width: 190px;
-    height: 40px;
-    margin: 30px 0 50px 0;
-    text-align: center;
-}
 
-#clear-button {
-    display: block;
-    width: 155px;
-    height: 28px;
-    margin: 0 0 10px 0;
-}
-
-#switch-button {
-    display: block;
-    width: 217px;
-    height: 28px;
-    margin: 0 0 10px 0;
-}
-
-#add-row, #add-column {
-    width: 95px;
-    height: 30px;
-    margin: 3px 0;
-    line-height: 30px;
-}
-#delete-row, #delete-column {
-    width: 85px;
-    height: 30px;
-    margin: 3px 0;
-    line-height: 30px;
-}
-
-.checkboxes {
-    margin: 50px 0 20px 0;
-}
 
 #main {
     white-space: nowrap;
 }
 
+
+/*
+    matrix
+*/
 .matrix {
     position: relative;
     display: inline-block;
@@ -140,31 +92,36 @@ table td {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 }
-
 #C {
     float: left;
 }
-
-
 .matrix .name {
     position: absolute;
-    top: 47%;
+    top: 43%;
     right: -40px;
-    font-size: 20px;
+    font-size: 25px;
 }
-
 .row {
     margin-bottom: 10px;
     font-size: 0;
 }
 
+/*
+    matrix element
+*/
 .element {
     width: 40px;
     height: 20px;
     margin: 0 5px;
     padding: 20px 0 0 0;
     text-align: center;
+    cursor: pointer;
 }
+.element[disabled] {
+    cursor: default;
+}
+
+
 
 .clear-left {
     float: left;
@@ -175,14 +132,4 @@ table td {
     width: 263px;
     margin-top: 50px;
     color: red;
-}
-
-.plus-minus {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 20px;
-    vertical-align: sub;
 }
