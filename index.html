@@ -22,8 +22,10 @@
                 <button id="switch-button" class="button">&nbsp;<span class="text-arrow">&#8645;</span> Поменять матрицы местами</button>
             </div>
             <div class="checkboxes">
-                <label title="Выбрать матрицу A"><input type="radio" name="matrix" value="A" checked="checked">Матрица А</label>
-                <label title="Выбрать матрицу B"><input type="radio" name="matrix" value="B">Матрица B</label>
+                <input type="radio" name="matrix" id="matrixA" value="A" checked="checked">
+                <label for="matrixA" title="Выбрать матрицу A">Матрица А</label>
+                <input type="radio" name="matrix" id="matrixB" value="B">
+                <label for="matrixB" title="Выбрать матрицу B">Матрица B</label>
             </div>
             <div class="buttons-wrap">
                 <button id="add-row" class="button"><span class="plus-minus">+</span>Добавить</button>
@@ -37,7 +39,7 @@
                 &nbsp;
                 <button id="delete-column" class="button">&nbsp;<span class="plus-minus">&#8211;</span>Удалить</button>
                 &nbsp;
-                <span>&nbsp;столбец</span>
+                <span>столбец</span>
             </div>
             <div class="error-message"></div>
         </td>

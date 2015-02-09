@@ -10,8 +10,8 @@ button {
     /* IE fallback*/
     background: #fdfdfd;
     background: linear-gradient(to bottom, #fdfdfd, #ececec);
-    border: 1px solid rgba(217, 217, 217, .5);
-    border-bottom: 1px solid #b2b2b2;
+    border: 1px solid rgba(160, 160, 160, .5);
+    border-bottom: 1px solid rgba(131, 131, 131, .5);
     outline: none;
     cursor: pointer;
     box-sizing: content-box;
@@ -22,8 +22,8 @@ button:disabled {
 }
 button:focus {
     top: -1px;
-    margin-right: -1px !important;
-    margin-left: -1px !important;
+    margin-right: -1px;
+    margin-left: -1px;
     outline: none;
     border: 2px solid #5199db;
 }
@@ -33,6 +33,10 @@ button:hover {
 button:disabled:hover {
     background: #f2f2f2;
     cursor: default;
+}
+button::-moz-focus-inner {
+    border: 0;
+    outline: 0;
 }
 
 .text-arrow {
@@ -49,19 +53,24 @@ button:disabled:hover {
 }
 #multiply-button {
     display: block;
-    width: 190px;
+    width: 175px;
     height: 40px;
     text-align: center;
     color: white;
     font-size: 15px;
+    border: 1px solid rgba(74, 128, 60, .5);
+    border-bottom: 1px solid rgba(55, 102, 43, .5);
 }
 #multiply-button {
     background: #4aa71c;
-    background: linear-gradient(to bottom, #4aa71c, #38920c);
+    background: linear-gradient(to bottom, #4ba81d, #38920c);
 }
 #multiply-button:hover {
     background: #317e0b;
     background: linear-gradient(to bottom, #3b8d13, #317e0b);
+}
+#multiply-button:focus {
+    border: 2px solid #5199db;
 }
 
 /*
@@ -94,11 +103,30 @@ button:disabled:hover {
     checks
 */
 .checkboxes {
+    position: relative;
     margin: 50px 0 20px 0;
+    overflow: hidden;
 }
-.checkboxes label,
-.checkboxes input {
+.checkboxes label {
+    margin-right: 15px;
+    padding-left: 25px;
     cursor: pointer;
+}
+.checkboxes input {
+    position: absolute;
+    top: -30px;
+}
+.checkboxes input + label {
+    background: url("../img/radio.png") 0 2px no-repeat;
+}
+.checkboxes input:checked + label {
+    background: url("../img/radio.png") 0 -78px no-repeat;
+}
+.checkboxes input:focus + label {
+    background: url("../img/radio.png") 0 -98px no-repeat;
+}
+.checkboxes label:hover {
+    background: url("../img/radio.png") 0 -59px no-repeat;
 }
 
 /*
@@ -123,8 +151,9 @@ button:disabled:hover {
     display: inline-block;
     width: 20px;
     height: 20px;
+    margin-top: 2px;
     font-weight: bold;
     font-size: 26px;
     line-height: 20px;
-    vertical-align: sub;
+    vertical-align: top;
 }

@@ -14,42 +14,57 @@ $(function () {
     var activeMatrix = A;
 
     // pushed buttons styles
+    // grey buttons
     $('button').not('.green').on('mousedown', function() {
         $(this).css({'background-color': '#d9d9d9',
                      'outline': 'none',
-                     'border-top-color': 'rgba(166, 166, 166, .5)',
-                     'border-left-color': 'rgba(204, 204, 204, .5)',
-                     'border-right-color': 'rgba(204, 204, 204, .5)',
-                     'border-bottom-color': 'rgba(204, 204, 204, .5)',
+                     'border-width': '1px',
+                     'top': '0',
+                     'left': '1px',
+                     'margin-right': '1px',
+                     'border-top-color': 'rgba(131, 131, 131, .5)',
+                     'border-left-color': 'rgba(160, 160, 160, .5)',
+                     'border-right-color': 'rgba(160, 160, 160, .5)',
+                     'border-bottom-color': 'rgba(160, 160, 160, .5)',
                      'box-shadow': 'inset 1px 4px 9px -2px rgba(0, 0, 0, .15)'});
     }).on('mouseup mouseleave', function() {
         $(this).css({'background-color': '',
                      'outline': '',
+                     'border-width': '',
+                     'top': '',
+                     'left': '',
+                     'margin-right': '',
                      'border-top-color': '',
                      'border-left-color': '',
                      'border-right-color': '',
                      'border-bottom-color': '',
-                     'border-top-color': '',
                      'box-shadow': ''});
     });
+    // green button
     $('button.green').on('mousedown', function() {
         $(this).css({'background-color': '#35840e',
             'outline': 'none',
-            'border-top-color': '#a6a6a6',
-            'border-left-color': '#cccccc',
-            'border-right-color': '#cccccc',
-            'border-bottom-color': '#cccccc',
+            'border-width': '1px',
+            'top': '0',
+            'left': '1px',
+            'border-top-color': 'rgba(55, 102, 43, .5)',
+            'border-left-color': 'rgba(74, 128, 60, .5)',
+            'border-right-color': 'rgba(74, 128, 60, .5)',
+            'border-bottom-color': 'rgba(74, 128, 60, .5)',
             'box-shadow': 'inset 1px 4px 9px -2px rgba(0, 0, 0, .15)'});
     }).on('mouseup mouseleave', function() {
         $(this).css({'background-color': '',
             'outline': '',
+            'border-width': '',
+            'top': '',
+            'left': '',
             'border-top-color': '',
             'border-left-color': '',
             'border-right-color': '',
             'border-bottom-color': '',
-            'border-top-color': '',
             'box-shadow': ''});
     });
+
     // "choose matrix" radio-button
     $('[name="matrix"]').change(function() {
         activeMatrix = $(this).val() === 'A' ? A : B;
@@ -63,15 +78,17 @@ $(function () {
         $(this).css({'color': 'black'});
         var _val = $(this).val();
         var _defVal = $(this).data('value');
+        // clear new element
         if (_val === _defVal) {
             $(this).val('');
         }
     }).on('blur', '.element', function() {
         sidebar.removeClass('edit');
         var _defVal = $(this).data('value');
+        // return default placeholder
         if ($(this).val() === '') {
             $(this).val(_defVal);
-            $(this).css({'color': '#404040'});
+            $(this).css({'color': '#d4d4d4'});
         }
     }).on('keydown', '.element', function(e) {
         var _val = $(this).val();
@@ -123,6 +140,7 @@ $(function () {
         clearError();
         $('.element').each(function() {
             $(this).val($(this).data('value'));
+            $(this).css('color', '#d4d4d4');
         })
     });
 
@@ -167,6 +185,7 @@ $(function () {
     });
 
 
+    // the Matrix
     function Matrix(name) {
         this.minWidth = 2;
         this.minHeight = 2;
@@ -179,10 +198,13 @@ $(function () {
 
         this.addRow = function() {
             var _row = $('<div class="row"></div>');
+            // for C matrix
             var _disabled = name === 'C' ? 'disabled' : '';
             this.height++;
             for (var i = 1; i <= this.width; i++) {
+                // a placeholder text
                 var _val = name.toLowerCase() + this.height + ',' + i;
+                // the element
                 var _elem = '<input type="text" class="element" value="' + _val + '" ' +
                             'data-value="' + _val + '"' +
                             'data-row="' + this.height + '"' +
@@ -193,6 +215,7 @@ $(function () {
             this.$el.append(_row);
         };
 
+        // removes last row
         this.deleteRow = function() {
             this.$el.find('.row').last().remove();
             this.height--;
@@ -200,10 +223,13 @@ $(function () {
 
         this.addColumn = function() {
             var self = this;
+            // for C matrix
             var _disabled = name === 'C' ? 'disabled' : '';
             this.width++;
             this.$el.find('.row').each(function(i) {
+                // placeholder text
                 var _val = name.toLowerCase() + (i + 1) + ',' + self.width;
+                // the element
                 var _elem = '<input type="text" class="element" value="' + _val + '" ' +
                             'data-value="' + _val + '"' +
                             'data-row="' + (i + 1) + '"' +
@@ -221,6 +247,7 @@ $(function () {
         };
     }
 
+    // links to first or second multiplier
     var getFirstMatrix = function() {
         return A.$el.hasClass('first') ? A : B;
     };
@@ -326,9 +353,11 @@ $(function () {
             }
 
             $(this).val(_value);
+            $(this).css('color', 'black');
         });
     };
 
+    // check matrices for numbers
     var isMatricesFilled = function() {
         var _result = true;
         $('#A, #B').find('.element').each(function() {
